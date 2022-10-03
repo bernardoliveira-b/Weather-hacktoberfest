@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.1"
 
+# Remove string accents
+gem 'i18n' 
+
 # byebug to debug better
 gem 'byebug'
 

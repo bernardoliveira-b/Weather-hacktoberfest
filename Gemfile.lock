@@ -240,6 +240,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   faraday
+  i18n
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
