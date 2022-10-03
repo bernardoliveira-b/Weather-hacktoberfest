@@ -1,4 +1,10 @@
 <div class="card offset-md-4 col-md-4 mt-4 opacity-75 shadow">
+  <div class="text-center m-4">
+    <%= form_with url: home_consult_path, method: :post, data: { turbo: true } do |form| %>
+      <%= form.select :state, @states.pluck('sigla'), { include_blank: 'Selecione o estado' }, class: 'form-control', onchange: "this.form.requestSubmit();" %>
+    <% end %>
+  </div>
+  
   <div class="card-body text-center">
     <h2><%= @weather_response['name'] %></h2>
 
