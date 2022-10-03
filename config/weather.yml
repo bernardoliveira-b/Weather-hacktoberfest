@@ -1,0 +1,11 @@
+default: &default
+  base_path: "https://weather.contrateumdev.com.br"
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

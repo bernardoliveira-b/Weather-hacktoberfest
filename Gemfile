@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.1"
 
+# byebug to debug better
+gem 'byebug'
+
+# Faraday to make requests
+gem 'faraday'
+
 # Install webpacker
 gem 'webpacker'
 
