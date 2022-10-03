@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :load_states
   before_action :weather_response
+  before_action :load_states
 
   def index
   end
