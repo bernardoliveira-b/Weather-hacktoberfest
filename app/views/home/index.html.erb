@@ -1,3 +1,19 @@
-<div class="text-center">
-  <h1>Home</h1>
+<div class="card offset-md-4 col-md-4 mt-4 opacity-75 shadow">
+  <div class="card-body text-center">
+    <h2><%= @weather_response['name'] %></h2>
+
+    <hr />
+
+    <div class="text-center">
+      <h2><%= @weather_response['main']['temp'] %> ºC</h2>
+
+      Mínima de: <b><%= @weather_response['main']['temp_min'] %> ºC</b> <br />
+      Máxima de: <b><%= @weather_response['main']['temp_max'] %> ºC</b>
+    </div>
+
+    <hr />
+
+    <h5>Tempo: <%= @weather_response['weather'][0]['description'].titleize %></h5>
+    <h5>Humidade: <%= @weather_response['main']['humidity'] %>%</h5>
+  </div>
 </div>
