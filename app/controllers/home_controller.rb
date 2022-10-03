@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :load_states
   before_action :weather_response
   before_action :load_states
 
@@ -6,8 +7,17 @@ class HomeController < ApplicationController
   end
 
   def consult
-    # TODO: set cities here to list all cities also, after selecting a state
-    # byebug
+    Rails.cache.fetch("districts_#{params[:state]}", expires_in: 12.hours) do
+      CityService.new(params[:state]).call
+    end
+
+    if params[:city].present?
+      Rails.cache.fetch("city_#{params[:city]}", expires_in: 12.hours) do
+        WeatherService.new(params[:city]).call
+      end
+    end
+
+    redirect_to root_path(state: params[:state], city: params[:city])
   end
 
   private
@@ -17,6 +27,6 @@ class HomeController < ApplicationController
   end
 
   def weather_response
-    @weather_response = WeatherService.new.call
+    @weather_response = Rails.cache.read("city_#{params[:city]}")
   end
 end

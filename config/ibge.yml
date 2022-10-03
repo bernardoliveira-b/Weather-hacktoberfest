@@ -2,6 +2,7 @@ default: &default
   base_path: "https://servicodados.ibge.gov.br"
   actions:
     states: "/api/v1/localidades/estados"
+    districts: "/distritos"
 
 development:
   <<: *default

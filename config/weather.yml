@@ -1,5 +1,6 @@
 default: &default
   base_path: "https://weather.contrateumdev.com.br"
+  complement_path: "/api/weather/city/"
 
 development:
   <<: *default
